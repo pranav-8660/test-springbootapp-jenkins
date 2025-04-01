@@ -13,4 +13,10 @@ public class TestController {
     public ResponseEntity<String> sampleTestMessage(){
         return ResponseEntity.ok("Hi, this is a test message");
     }
+
+    @GetMapping(value = "/ping")
+    public ResponseEntity<String> pingFunc(){
+        return ResponseEntity.ok("PONG!!");
+    }
+
 }
