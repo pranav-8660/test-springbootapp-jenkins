@@ -19,4 +19,9 @@ public class TestController {
         return ResponseEntity.ok("PONG!!");
     }
 
+    @GetMapping(value = "/newtest")
+    public ResponseEntity<String> newTest(){
+        return ResponseEntity.ok("New test commit!!");
+    }
+
 }
