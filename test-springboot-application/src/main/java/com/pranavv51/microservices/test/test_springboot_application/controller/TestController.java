@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping(value = "/")
     public ResponseEntity<String> sampleTestMessage(){
-        return ResponseEntity.ok("Hi, this is a test message");
+        return ResponseEntity.ok("Hi, this is a test message..after new commit!");
     }
 
     @GetMapping(value = "/ping")
