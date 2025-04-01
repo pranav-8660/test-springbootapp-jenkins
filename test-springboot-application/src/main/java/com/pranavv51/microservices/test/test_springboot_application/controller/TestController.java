@@ -16,7 +16,7 @@ public class TestController {
 
     @GetMapping(value = "/ping")
     public ResponseEntity<String> pingFunc(){
-        return ResponseEntity.ok("PONG!!");
+        return ResponseEntity.ok("PONG!! after a ping!!");
     }
 
     @GetMapping(value = "/newtest")
