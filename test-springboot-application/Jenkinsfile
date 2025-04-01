@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_EC2_IP = "13.218.215.189"
+        SSH_USER = "ubuntu"
+        JAR_NAME = "test-springboot-application-0.0.1-SNAPSHOT.jar"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/pranav-8660/test-springbootapp-jenkins.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to EC2') {
+            steps {
+                script {
+                    sh """
+                    scp -o StrictHostKeyChecking=no target/${JAR_NAME} ${SSH_USER}@${AWS_EC2_IP}:/home/ubuntu/
+                    ssh ${SSH_USER}@${AWS_EC2_IP} << 'EOF'
+                    pkill -f ${JAR_NAME} || true
+                    nohup java -jar /home/ubuntu/${JAR_NAME} > /home/ubuntu/app.log 2>&1 &
+                    EOF
+                    """
+                }
+            }
+        }
+    }
+}
