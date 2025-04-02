@@ -29,4 +29,9 @@ public class TestController {
         return ResponseEntity.ok("New test random commit!!");
     }
 
+    @GetMapping(value = "/hello")
+    public ResponseEntity<String> newTestRandHello(){
+        return ResponseEntity.ok("Hello, hey, hi test random commit!!");
+    }
+
 }
