@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_EC2_IP = "13.218.215.189"
+        AWS_EC2_IP = "34.228.247.184"
         SSH_USER = "ubuntu"
         JAR_NAME = "test-springboot-application-0.0.1-SNAPSHOT.jar"
     }
