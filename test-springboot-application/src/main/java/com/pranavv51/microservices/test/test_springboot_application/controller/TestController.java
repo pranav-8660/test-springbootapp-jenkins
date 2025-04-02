@@ -34,4 +34,9 @@ public class TestController {
         return ResponseEntity.ok("Hello, hey, hi test random commit!!");
     }
 
+    @GetMapping(value = "/testmerge")
+    public ResponseEntity<String> newTestMerge(){
+        return ResponseEntity.ok("This test is to check if merge triggers the pipeline");
+    }
+
 }
